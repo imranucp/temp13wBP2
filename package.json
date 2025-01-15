@@ -1,0 +1,19 @@
+{
+  "name": "temp13wbp2",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imranucp/temp13wBP2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/imranucp/temp13wBP2/issues"
+  },
+  "homepage": "https://github.com/imranucp/temp13wBP2#readme",
+  "description": ""
+}
