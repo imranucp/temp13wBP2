@@ -15,7 +15,7 @@ jobs:
         run: npm install --save-dev parcel
       - name: Build Website
         # run: npx parcel ./src/index.html --dist-dir dev_build
-        run: npx parcel build ./src/index.html --dist-dir dev_build --no-minify --source-maps
+        run: npx parcel build ./src/index.html --dist-dir dev_build
       - name: Check dev_build Folder
         run: |
           cd dev_build
