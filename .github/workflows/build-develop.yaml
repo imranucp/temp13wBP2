@@ -20,5 +20,11 @@ jobs:
         run: |
           cd dev_build
           ls -l
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}   # Use the GitHub token to authenticate
+          publish_dir: ./dev_build  # The directory containing the built files (e.g., 'dist')
+          publish_branch: gh-pages  # The branch to push the built files to (GitHub Pages will serve this branch)
 
 
