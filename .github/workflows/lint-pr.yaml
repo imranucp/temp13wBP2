@@ -1,0 +1,22 @@
+name: pr-wf
+on:
+  pull_request:
+    branches:
+      - develop
+jobs:
+  lint-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Welcome Message
+        run: echo "Allah Always Help Me"
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+      - name: Install CSS and HTML Linters
+        run: |
+          npm install --save-dev htmlhint
+          npm install --save-dev stylelint
+      - name: Lint HTML and CSS
+        run: |
+          npx htmlhint "**/*.html"
+          npx stylelint "**/*.css"
+  

@@ -1,0 +1,24 @@
+name: build-wf
+on:
+  push:
+    branches:
+      - develop
+jobs:
+  build-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Welcome step
+        run: echo "Allah Always Help Me"
+      - name: chekcout repository
+        uses: actions/checkout@v4
+      - name: Install Build Tool
+        run: npm install --save-dev parcel
+      - name: Build Website
+        # run: npx parcel ./src/index.html --dist-dir dev_build
+        run: npx parcel build ./src/index.html --dist-dir dev_build --no-minify --source-maps
+      - name: Check dev_build Folder
+        run: |
+          cd dev_build
+          ls -l
+
+
