@@ -12,6 +12,7 @@ jobs:
       id-token: write
     environment:
       name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Welcome step
         run: echo "Allah Always Help Me"
@@ -27,11 +28,11 @@ jobs:
           cd dev
           ls -l                    
       - name: Upload static files as artifact
-        id: deployment
         uses: actions/upload-pages-artifact@v3 # or specific "vX.X.X" version tag for this action
         with:
           path: ./dev
       - name: Deployment to to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
-        with:
+        with:          
           token: ${{github.token}}
