@@ -4,8 +4,15 @@ on:
     branches:
       - develop
 jobs:
-  build-job:
+  deploy-job:
     runs-on: ubuntu-latest
+    permissions: 
+      pages: write
+      contents: read
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Welcome step
         run: echo "Allah Always Help Me"
@@ -20,11 +27,11 @@ jobs:
         run: |
           cd dev_build
           ls -l
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}   # Use the GitHub token to authenticate
-          publish_dir: ./dev_build  # The directory containing the built files (e.g., 'dist')
-          publish_branch: gh-pages  # The branch to push the built files to (GitHub Pages will serve this branch)
-
-
+          name: my-app
+          path: ./dev_build
+      - name: Deployment to to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
