@@ -22,16 +22,16 @@ jobs:
         run: npm install --save-dev parcel
       - name: Build Website
         # run: npx parcel ./src/index.html --dist-dir dev_build
-        run: npx parcel build ./src/index.html --dist-dir github-pages
+        run: npx parcel build ./src/index.html --dist-dir ./dev
       - name: Check dev_build Folder
         run: |
-          cd github-pages
+          cd dev
           ls -l
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: my-app
-          path: ./dev_build
+          name: github-pages
+          path: ./dev
       - name: Deployment to to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
